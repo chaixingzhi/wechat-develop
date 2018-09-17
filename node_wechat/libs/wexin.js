@@ -37,6 +37,12 @@ exports.reply = function *(next) {
                 picUrl: 'https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png',
                 url: 'https://nodejs.org/'
             }]
+        } else if (content === '5'){
+            var img = yield wechatApi.uploadMaterialI('image', __dirname + '/2.jpg')
+            reply = {
+                type: 'image',
+                media_id: img.media_id
+            }
         }
 
         this.body = reply
