@@ -49,9 +49,7 @@ module.exports = function(opts, handler) {
 			console.log('消息是：', message);
 			this.wexin = {message}
 			console.log('Wechat.reply', wechat.reply)
-			console.log('next',next);
 			yield handler.call(this, next)
-			console.log('this.body:',this.body)
 			wechat.reply.call(this)
 
 		}

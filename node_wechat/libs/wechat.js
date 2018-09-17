@@ -4,9 +4,10 @@ var Promise = require('bluebird')
 var request = Promise.promisify(require('request'))
 var {tpl} = require('./util')
 
-var prefix = 'https://api.weixin.qq.com/cgi-bin/token?'
+var prefix = 'https://api.weixin.qq.com/cgi-bin/'
 var api = {
-	accessToken: prefix + 'grant_type=client_credential' 
+	accessToken: prefix + 'token?grant_type=client_credential' ,
+	uploadUrl: prefix + + 'media/upload?'
 }
 
 function Wechat(opts) {
@@ -16,7 +17,17 @@ function Wechat(opts) {
 	this.appSecret = opts.appSecret
 	this.getAccessToken = opts.getAccessToken
 	this.saveAccessToken = opts.saveAccessToken
+	this.fetchAccessToken()
+}
 
+Wechat.prototype.fetchAccessToken = function() {
+	let that = this
+
+	if (this.access_token && this.expires_in) {
+		if (this.isValidAccessToken(this)) {
+			return Promise.resolve(this)
+		}
+	}
 	this.getAccessToken() // 获取票据，返回一个Promise
 		.then(function(data) {
 			try {
@@ -37,9 +48,9 @@ function Wechat(opts) {
 			that.expires_in = data.expires_in
 			var result = JSON.stringify(data)
 			that.saveAccessToken(result) // 保存票据
+			return Promise.resolve(data)
 		})
 }
-
 
 Wechat.prototype.isValidAccessToken = function (data) {
 	if (!data || !data.access_token || !data.expires_in) {
@@ -71,7 +82,36 @@ Wechat.prototype.updateAccessToken = function() {
 			var expires_in = now + (data.expires_in - 20) * 1000
 			data.expires_in = expires_in
 			resolve(data)
+		}).catch(function(err) {
+			reject('err: ', err)
 		})
+	})
+}
+
+Wechat.prototype.uploadMaterial = function(type, filePath) {
+	let that = this
+	let form = {
+		media: fs.createReadStream(filePath)
+	}
+
+	return new Promise(function(resolve, reject) {
+		that
+			.fetchAccessToken()
+			.then(function(data) {
+				var url = api.upload + 'access_token='+ data.access_token + '&type=' + type
+				request(url, {method: 'POST', json: true, formData: form}).then(function(response) {
+					console.log('get media: ', response)
+					let result = response[1]
+					if (result) {
+						resolve(result)
+					} else {
+						throw new Error('upload material fails')
+					}
+					resolve(result)
+				})
+			}).catch(e => {
+				console.error('uploadMaterial', e)
+			}) 
 	})
 }
 
