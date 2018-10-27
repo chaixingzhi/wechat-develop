@@ -8,7 +8,7 @@ var fs = require('fs')
 var prefix = 'https://api.weixin.qq.com/cgi-bin/'
 var api = {
 	accessToken: prefix + 'token?grant_type=client_credential' ,
-	uploadTemp: prefix + + 'media/upload?'
+	uploadTemp: prefix + 'media/upload?'
 }
 
 function Wechat(opts) {
