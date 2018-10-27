@@ -8,7 +8,7 @@ var fs = require('fs')
 var prefix = 'https://api.weixin.qq.com/cgi-bin/'
 var api = {
 	accessToken: prefix + 'token?grant_type=client_credential' ,
-	uploadUrl: prefix + + 'media/upload?'
+	uploadTemp: prefix + + 'media/upload?'
 }
 
 function Wechat(opts) {
@@ -99,7 +99,7 @@ Wechat.prototype.uploadMaterial = function(type, filePath) { // 上传临时素�
 		that
 			.fetchAccessToken()
 			.then(function(data) {
-				var url = api.upload + 'access_token='+ data.access_token + '&type=' + type
+				var url = api.uploadTemp + 'access_token='+ data.access_token + '&type=' + type
 				request(url, {method: 'POST', json: true, formData: form}).then(function(response) {
 					console.log('get media: ', response)
 					let result = response[1]
