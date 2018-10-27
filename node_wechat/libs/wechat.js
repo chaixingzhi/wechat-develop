@@ -52,7 +52,7 @@ Wechat.prototype.fetchAccessToken = function() {
 		})
 }
 
-Wechat.prototype.isValidAccessToken = function (data) {
+Wechat.prototype.isValidAccessToken = function (data) { // 判断票据是否有效
 	if (!data || !data.access_token || !data.expires_in) {
 		return false
 	}
@@ -68,7 +68,7 @@ Wechat.prototype.isValidAccessToken = function (data) {
 	}
 }
 
-Wechat.prototype.updateAccessToken = function() {
+Wechat.prototype.updateAccessToken = function() { //更新票据
 	var appID = this.appID
 	var appSecret = this.appSecret
 	var url = api.accessToken + '&appid=' + appID + '&secret=' + appSecret
@@ -88,7 +88,7 @@ Wechat.prototype.updateAccessToken = function() {
 	})
 }
 
-Wechat.prototype.uploadMaterial = function(type, filePath) {
+Wechat.prototype.uploadMaterial = function(type, filePath) { // 上传临时素材
 	let that = this
 	let form = {
 		media: fs.createReadStream(filePath)
