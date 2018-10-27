@@ -44,8 +44,7 @@ exports.reply = function *(next) {
 	    console.log('imgpath is :', __dirname + '/veer1.jpg')
 	    var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             reply = {
-                // type: 'image',
-                media_id: img.media_id
+                mediaId: img.media_id
             }
         }
         this.body = reply
