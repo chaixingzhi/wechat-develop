@@ -44,7 +44,6 @@ exports.reply = function *(next) {
                 media_id: img.media_id
             }
         }
-
         this.body = reply
         console.log('这不是事件推送')
     }

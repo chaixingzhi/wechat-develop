@@ -28,7 +28,7 @@ Wechat.prototype.fetchAccessToken = function() {
 			return Promise.resolve(this)
 		}
 	}
-	this.getAccessToken() // 获取票据，返回一个Promise
+	that.getAccessToken() // 获取票据，返回一个Promise
 		.then(function(data) {
 			try {
 				data = JSON.parse(data)
