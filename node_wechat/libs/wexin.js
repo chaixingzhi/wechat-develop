@@ -41,6 +41,7 @@ exports.reply = function *(next) {
                 url: 'https://nodejs.org/'
             }]
         } else if (content === '5'){
+	    console.log('imgpath is :', __dirname + '/veer1.jpg')
             var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             reply = {
                 type: 'image',
