@@ -18,11 +18,11 @@ var tpl = heredoc(function() {/*
             </Image>
         <% } else if (MsgType === 'voice') { %>
             <Voice>
-                <MediaId><![CDATA[<%= content.media_id %>]]></MediaId>
+                <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
             </Voice>
          <% } else if (MsgType === 'video') { %>
             <Video>
-                <MediaId><![CDATA[<%= content.media_id %>]]></MediaId>
+                <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
                 <Title><![CDATA[<%= content.title %>]]></Title>
                 <Description><![CDATA[<%= content.description %>]]></Description>
             </Video>
