@@ -26,7 +26,7 @@ exports.reply = function *(next) {
         }
     } else if(message.MsgType === 'text'){
         var content = message.Content
-        var reply = '额，　你说的'　+ message.Content + '太复杂了'
+        var reply = '额，你说的'+ message.Content + '太复杂了'
         if (content === '1') {
             reply = '天下第一'
         } else if (content === '2') {
@@ -44,7 +44,7 @@ exports.reply = function *(next) {
             console.log('图片路径:', __dirname + '/veer1.jpg')
             var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             reply = {
-                type: 'image',
+                // type: 'image',
                 media_id: img.media_id
             }
         }
