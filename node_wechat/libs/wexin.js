@@ -38,7 +38,7 @@ exports.reply = function *(next) {
                 url: 'https://nodejs.org/'
             }]
         } else if (content === '5'){
-            var img = yield wechatApi.uploadMaterialI('image', __dirname + '/2.jpg')
+            var img = yield wechatApi.uploadMaterialI('image', __dirname + '/veer1.jpg')
             reply = {
                 type: 'image',
                 media_id: img.media_id
