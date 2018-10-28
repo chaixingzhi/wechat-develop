@@ -5,6 +5,7 @@ var wechatApi = new Wechat(config.wechat)
 
 exports.reply = function *(next) {
     let message = this.wexin.message
+    let image = {}
     if (message.MsgType === 'event') {
         if (message.Event === 'subscribe') {
             if (message.EventKey) {
@@ -42,14 +43,16 @@ exports.reply = function *(next) {
             }]
         } else if (content === '5'){
             console.log('图片路径:', __dirname + '/veer1.jpg')
-            var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+            if (!image) {
+                image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+            }
             reply = { 
                 type: 'image',
-                mediaId: img.media_id
+                mediaId: image.media_id
             }
         }
         this.body = reply
-        console.log('这不是事件推送')
+        // console.log('这不是事件推送')
     }
     yield next
 }
