@@ -102,7 +102,7 @@ Wechat.prototype.uploadMaterial = function(type, filePath) { // 上传临时素�
 				var url = api.uploadTemp + 'access_token='+ data.access_token + '&type=' + type
 				request(url, {method: 'POST', json: true, formData: form}).then(function(response) {
 					console.log('get media: ', response.body)
-					let result = response.body
+					let result = JSON.parse(response.body)
 					if (result) {
 						resolve(result)
 					} else {
