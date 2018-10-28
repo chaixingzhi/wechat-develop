@@ -2,6 +2,7 @@
 var config = require('../config/config')
 var Wechat = require('./wechat')
 var wechatApi = new Wechat(config.wechat)
+var image = {}
 
 exports.reply = function *(next) {
     let message = this.wexin.message
@@ -45,11 +46,11 @@ exports.reply = function *(next) {
 	    var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             reply = { 
                 type: 'image',
-                mediaId: img.media_id
+                mediaId: image.media_id
             }
         }
         this.body = reply
-        console.log('这不是事件推送')
+        // console.log('这不是事件推送')
     }
     yield next
 }
