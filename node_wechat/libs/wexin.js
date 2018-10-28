@@ -59,6 +59,7 @@ exports.reply = function *(next) {
                 title: '回复音乐内容',
                 description: '一起麦动起来',
                 musicUrl: 'http://www.ytmp3.cn/down/54307.mp3',
+                hqMusicUrl: '',
                 thumbMediaId: image.media_id,
             }
         }

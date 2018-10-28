@@ -30,9 +30,9 @@ var tpl = heredoc(function() {/*
             <Music>
                 <Title><![CDATA[<%= content.title %>]]></Title>
                 <Description><![CDATA[<%= content.description %>]]></Description>
-                <MusicUrl><![CDATA[<%= content.MUSIC_Url %>]]></MusicUrl>
-                <HQMusicUrl><![CDATA[<%= content.HQ_MUSIC_Url %>]]></HQMusicUrl>
-                <ThumbMediaId><![CDATA[<%= content.mediaId %>]]></ThumbMediaId>
+                <MusicUrl><![CDATA[<%= content.musicUrl %>]]></MusicUrl>
+                <HQMusicUrl><![CDATA[<%= content.hqMusicUrl %>]]></HQMusicUrl>
+                <ThumbMediaId><![CDATA[<%= content.thumbMediaId %>]]></ThumbMediaId>
             </Music>
         <% } else if (MsgType === 'news') { %>
             <ArticleCount><%= content.length %></ArticleCount>
