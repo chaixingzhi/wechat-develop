@@ -60,7 +60,7 @@ exports.reply = function *(next) {
                 description: '一起麦动起来',
                 musicUrl: 'http://www.ytmp3.cn/down/54307.mp3',
                 hqMusicUrl: '',
-                thumbMediaId: image.media_id,
+                thumbMediaId: image.media_id
             }
         }
         this.body = reply

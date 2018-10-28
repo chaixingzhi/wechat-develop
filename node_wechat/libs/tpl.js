@@ -13,9 +13,7 @@ var tpl = heredoc(function() {/*
             <Content><![CDATA[<%= content %>]]></Content>
             <MsgId>1234567890123456</MsgId>
         <% } else if (MsgType === 'image') { %>
-            <Image>
-                <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
-            </Image>
+            <Image><MediaId><![CDATA[<%= content.mediaId %>]]></MediaId></Image>
         <% } else if (MsgType === 'voice') { %>
             <Voice>
                 <MediaId><![CDATA[<%= content.mediaId %>]]></MediaId>
@@ -39,7 +37,7 @@ var tpl = heredoc(function() {/*
             <Articles>
                 <% content.forEach(item => { %>
                     <item>
-                        <Title><![CDATA[<%= item.title %>]]></Title> 
+                        <Title><![CDATA[<%= item.title %>]]></Title>
                         <Description><![CDATA[<%= item.description %>]]></Description>
                         <PicUrl><![CDATA[<%= item.picUrl %>]]></PicUrl>
                         <Url><![CDATA[<%= item.url %>]]></Url>
