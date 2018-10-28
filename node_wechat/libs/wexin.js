@@ -43,7 +43,7 @@ exports.reply = function *(next) {
         } else if (content === '5'){
             console.log('图片路径:', __dirname + '/veer1.jpg')
             var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
-            reply = {
+            reply = { 
                 type: 'image',
                 mediaId: img.media_id
             }
