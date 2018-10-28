@@ -1,7 +1,7 @@
 'use strict'
 var config = require('../config/config')
 var Wechat = require('./wechat')
-var chalk = require('chalk')
+const chalk = require('chalk');
 var wechatApi = new Wechat(config.wechat)
 var image = {}
 
@@ -43,8 +43,11 @@ exports.reply = function *(next) {
                 url: 'https://nodejs.org/'
             }]
         } else if (content === '5'){
-	    console.log('imgpath is :', __dirname + '/veer1.jpg')
-	    var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+            console.log('imgpath is :', __dirname + '/veer1.jpg')
+            chalk.green('image: ', image)
+            if (!image) {
+                image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+            }
             reply = { 
                 type: 'image',
                 mediaId: image.media_id
