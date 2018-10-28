@@ -52,6 +52,17 @@ exports.reply = function *(next) {
                 type: 'image',
                 mediaId: image.media_id
             }
+        } else if (content === '7') {
+            if (!image.media_id) {
+                image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+            }
+            reply = { 
+                type: 'music',
+                title: '回复音乐内容',
+                description: '一起麦动起来',
+                musicUrl: 'http://www.ytmp3.cn/down/54307.mp3',
+                thumbMediaId: image.media_id,
+            }
         }
         this.body = reply
         // console.log('这不是事件推送')
