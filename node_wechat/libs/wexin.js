@@ -47,8 +47,9 @@ exports.reply = function *(next) {
                 image = yield wechatApi.uploadMaterial('image', __dirname + '/static/1.jpg')
             }
             reply = { 
-                type: 'image',
-                mediaId: image.media_id
+                type: image.type,
+                mediaId: image.media_id,
+                CreateTime: image.CreateTime
             }
         } else if (content === '7') {
             if (!image.media_id) {
