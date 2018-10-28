@@ -46,7 +46,7 @@ exports.reply = function *(next) {
             if (!image) {
                 image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             }
-            reply = { 
+            reply = {
                 type: 'image',
                 mediaId: image.media_id
             }
