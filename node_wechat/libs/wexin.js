@@ -49,7 +49,6 @@ exports.reply = function *(next) {
             reply = { 
                 type: image.type,
                 mediaId: image.media_id,
-                CreateTime: image.CreateTime
             }
         } else if (content === '7') {
             if (!image.media_id) {
