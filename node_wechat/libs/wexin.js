@@ -41,15 +41,9 @@ exports.reply = function *(next) {
                 url: 'https://nodejs.org/'
             }]
         } else if (content === '5'){
-<<<<<<< HEAD
 	    console.log('imgpath is :', __dirname + '/veer1.jpg')
 	    var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
-            reply = {
-=======
-            console.log('图片路径:', __dirname + '/veer1.jpg')
-            var img = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             reply = { 
->>>>>>> 57672b9b9ef9f31abc31bf1314355cb41d2298a6
                 type: 'image',
                 mediaId: img.media_id
             }
