@@ -44,8 +44,8 @@ exports.reply = function *(next) {
             }]
         } else if (content === '5'){
             console.log('imgpath is :', __dirname + '/veer1.jpg')
-            chalk.green('image: ', image)
-            if (!image) {
+            chalk.green('image: ')
+            if (!image.media_id) {
                 image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
             }
             reply = { 
