@@ -28,11 +28,11 @@ var tpl = heredoc(function() {/*
             </Video>
         <% } else if (MsgType === 'music') { %>
             <Music>
-                <Title><![CDATA[<%= content.TITLE %>]]></Title>
-                <Description><![CDATA[<%= content.DESCRIPTION %>]]></Description>
+                <Title><![CDATA[<%= content.title %>]]></Title>
+                <Description><![CDATA[<%= content.description %>]]></Description>
                 <MusicUrl><![CDATA[<%= content.MUSIC_Url %>]]></MusicUrl>
                 <HQMusicUrl><![CDATA[<%= content.HQ_MUSIC_Url %>]]></HQMusicUrl>
-                <ThumbMediaId><![CDATA[<%= content.media_id %>]]></ThumbMediaId>
+                <ThumbMediaId><![CDATA[<%= content.mediaId %>]]></ThumbMediaId>
             </Music>
         <% } else if (MsgType === 'news') { %>
             <ArticleCount><%= content.length %></ArticleCount>

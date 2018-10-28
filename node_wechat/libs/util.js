@@ -71,7 +71,7 @@ exports.parseXMLAsync = function(xml) {
 
 exports.tpl = function(content, message) {
 	var info = {}
-	var type = 'text'
+	let type = 'text'
 	var FromUserName = message.FromUserName
 	var ToUserName = message.ToUserName
 
@@ -84,6 +84,7 @@ exports.tpl = function(content, message) {
 	info.content = content
 	info.CreateTime = new Date().getTime()
 	info.MsgType = type
+	console.log('info.MsgType: ', info.MsgType)
 	info.ToUserName = FromUserName
 	info.FromUserName = ToUserName
 
