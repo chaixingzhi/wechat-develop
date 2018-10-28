@@ -2,10 +2,10 @@
 var config = require('../config/config')
 var Wechat = require('./wechat')
 var wechatApi = new Wechat(config.wechat)
+var image = {}
 
 exports.reply = function *(next) {
     let message = this.wexin.message
-    let image = {}
     if (message.MsgType === 'event') {
         if (message.Event === 'subscribe') {
             if (message.EventKey) {
