@@ -43,10 +43,8 @@ exports.reply = function *(next) {
                 url: 'https://nodejs.org/'
             }]
         } else if (content === '5'){
-            console.log('imgpath is :', __dirname + '/veer1.jpg')
-            chalk.green('image: ')
             if (!image.media_id) {
-                image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+                image = yield wechatApi.uploadMaterial('image', __dirname + '/static/1.jpg')
             }
             reply = { 
                 type: 'image',
