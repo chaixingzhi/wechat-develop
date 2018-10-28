@@ -54,7 +54,7 @@ exports.reply = function *(next) {
             }
         } else if (content === '7') {
             if (!image.media_id) {
-                image = yield wechatApi.uploadMaterial('image', __dirname + '/veer1.jpg')
+                image = yield wechatApi.uploadMaterial('image', __dirname + '/static/1.jpg')
             }
             reply = { 
                 type: 'music',
