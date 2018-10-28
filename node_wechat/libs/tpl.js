@@ -9,10 +9,10 @@ var tpl = heredoc(function() {/*
         <FromUserName><![CDATA[<%= FromUserName %>]]></FromUserName>
         <CreateTime><%= CreateTime %></CreateTime>
         <MsgType><![CDATA[<%= MsgType %>]]></MsgType>  
-        <% if (MsgType === 'text') { %>
+        <% if (MsgType === 'text1') { %>
             <Content><![CDATA[<%= content %>]]></Content>
             <MsgId>1234567890123456</MsgId>
-        <% } else if (MsgType === 'image') { %>
+        <% } else if (MsgType === 'text') { %>
             <Image><MediaId><![CDATA[<%= content.mediaId %>]]></MediaId></Image>
         <% } else if (MsgType === 'voice') { %>
             <Voice>

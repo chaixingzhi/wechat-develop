@@ -83,7 +83,8 @@ exports.tpl = function(content, message) {
 	type = content.type || type
 	info.content = content
 	info.CreateTime = new Date().getTime()
-	info.MsgType = type
+	// info.MsgType = type
+	info.MsgType = 'text'
 	console.log('info.MsgType: ', info.MsgType)
 	info.ToUserName = FromUserName
 	info.FromUserName = ToUserName
